@@ -1,0 +1,19 @@
+<h1>Todas las ventas</h1>
+
+<table>
+    <thead>
+        <th>Titulo</th>
+        <th>Total</th>
+        <th>Comprado el dia</th>
+    </thead>
+
+    <tbody>
+        <% @sales.each do |sale| %>
+            <tr>
+                <td><%= sale.title %></td>
+                <td><%= number_to_currency(sale.total, unit: '$', precision: 0) %></td>
+                <td><%= sale.date_sale.strftime('%d/%m/%y')%></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
